@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
+import './Login.css';
 
 export default function Login() {
   const getEmptyState = () => ({
@@ -42,7 +43,7 @@ export default function Login() {
 
   useEffect(() => {
     formSchema.isValid(formState).then(valid => {
-      console.log(formState);
+      //   console.log(formState);
       setButtonDisabled(!valid);
     });
   }, [formState]);
@@ -77,36 +78,32 @@ export default function Login() {
   };
 
   return (
-    <div id="loginContainer">
-      <form onSubmit={formSubmit} className="formContainer">
-        <label htmlFor="userName" className="userNameLabel">
-          USERNAME
-          <input
-            name="userName"
-            id="userName"
-            type="text"
-            onChange={textBoxChanges}
-            value={formState.userName}
-          />
-          {errors.userName.length > 0 ? (
-            <p className="error">{errors.userName}</p>
-          ) : null}
-        </label>
-        <label htmlFor="passWord" className="passWordLabel">
-          PASSWORD
-          <input
-            name="passWord"
-            id="passWord"
-            type="password"
-            onChange={textBoxChanges}
-            value={formState.passWord}
-          />
-          {errors.passWord.length > 0 ? (
-            <p className="error">{errors.passWord}</p>
-          ) : null}
-        </label>
-        <button disabled={buttonDisabled}>Login</button>
-      </form>
-    </div>
+    <form onSubmit={formSubmit} className="formContainer">
+      <h2>Login</h2>
+      <label htmlFor="userName">Username</label>
+      <input
+        name="userName"
+        id="userName"
+        type="text"
+        onChange={textBoxChanges}
+        value={formState.userName}
+      />
+      {errors.userName.length > 0 ? (
+        <p className="error">{errors.userName}</p>
+      ) : null}
+
+      <label htmlFor="passWord">Password</label>
+      <input
+        name="passWord"
+        id="passWord"
+        type="password"
+        onChange={textBoxChanges}
+        value={formState.passWord}
+      />
+      {errors.passWord.length > 0 ? (
+        <p className="error">{errors.passWord}</p>
+      ) : null}
+      <button disabled={buttonDisabled}>Login</button>
+    </form>
   );
 }

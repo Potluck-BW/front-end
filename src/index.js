@@ -12,6 +12,7 @@ import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { LoadingComponent } from './components/common';
 import Login from './components/Login/Login';
+import './index.css';
 
 ReactDOM.render(
   <Router>
@@ -29,7 +30,9 @@ function App() {
 
   return (
     <Switch>
-      <Route exact path="/" component={Login} />
+      <div className="appBody">
+        <Route exact path="/" component={Login} />
+      </div>
     </Switch>
   );
 }
