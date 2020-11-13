@@ -11,7 +11,7 @@ export default function Login() {
   const [formState, setFormState] = useState(getEmptyState());
 
   const [errors, setErrors] = useState({
-    useName: '',
+    userName: '',
     passWord: '',
   });
 
@@ -33,11 +33,11 @@ export default function Login() {
     userName: yup
       .string()
       .required('Username required')
-      .min(2, 'Username is at least 2 characters long'),
+      .min(2, 'Username must be at least 2 characters long'),
     passWord: yup
       .string()
       .required('Password required')
-      .min(6, 'Password is at least 6 characters long'),
+      .min(6, 'Password must be at least 6 characters long'),
   });
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Login() {
 
   const validate = e => {
     yup
-      .reach(formSchema, e.target.userName)
+      .reach(formSchema, e.target.name)
       .validate(e.target.value)
       .then(valid => {
         setErrors({
@@ -78,26 +78,32 @@ export default function Login() {
 
   return (
     <div id="loginContainer">
-      <form onSubmit={formSubmit}>
-        <label htmlFor="userName">
+      <form onSubmit={formSubmit} className="formContainer">
+        <label htmlFor="userName" className="userNameLabel">
           USERNAME
-          {/* {errors.userName.length > 0 ? (<p className="error">{errors.userName}</p>) : null} */}
           <input
             name="userName"
             id="userName"
             type="text"
             onChange={textBoxChanges}
+            value={formState.userName}
           />
+          {errors.userName.length > 0 ? (
+            <p className="error">{errors.userName}</p>
+          ) : null}
         </label>
-        <label>
+        <label htmlFor="passWord" className="passWordLabel">
           PASSWORD
-          {/* {errors.userName.length > 0 ? (<p className="error">{errors.userName}</p>) : null} */}
           <input
             name="passWord"
             id="passWord"
-            type="text"
+            type="password"
             onChange={textBoxChanges}
+            value={formState.passWord}
           />
+          {errors.passWord.length > 0 ? (
+            <p className="error">{errors.passWord}</p>
+          ) : null}
         </label>
         <button disabled={buttonDisabled}>Login</button>
       </form>
