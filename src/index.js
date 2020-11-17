@@ -11,6 +11,8 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { LoadingComponent } from './components/common';
+import Login from './components/Login/Login';
+import './index.css';
 
 ReactDOM.render(
   <Router>
@@ -28,18 +30,9 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/landing" component={LandingPage} />
-      {/* any of the routes you need secured should be registered as SecureRoutes */}
-      <Route
-        path="/"
-        exact
-        component={() => <LandingPage />}
-      />
-      <Route path="/example-list" component={ExampleListPage} />
-      
-      
-      <Route component={NotFoundPage} />
+      <div className="appBody">
+        <Route exact path="/" component={Login} />
+      </div>
     </Switch>
-    
   );
 }
