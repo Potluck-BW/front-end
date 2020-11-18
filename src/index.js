@@ -12,6 +12,8 @@ import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { LoadingComponent } from './components/common';
 import RegForm from './components/RegForm/RegForm.js';
+import Login from './components/Login/Login';
+import './index.css';
 
 ReactDOM.render(
   <Router>
@@ -29,12 +31,10 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/landing" component={LandingPage} />
-      {/* any of the routes you need secured should be registered as SecureRoutes */}
-      <Route path="/" exact component={() => <LandingPage />} />
-      <Route path="/example-list" component={RegForm} />
-
-      <Route component={NotFoundPage} />
+      <div className="appBody">
+        <Route exact path="/" component={Login} />
+        <Route path="/register" component={RegForm} />
+      </div>
     </Switch>
   );
 }

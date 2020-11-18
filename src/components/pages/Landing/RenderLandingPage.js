@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Login from '../../Login/Login';
 
 function RenderLandingPage(props) {
   return (
@@ -12,6 +13,7 @@ function RenderLandingPage(props) {
         </p>
         <p>
           <Link to="/example-list">Example List of Items</Link>
+          <Login />
         </p>
       </div>
     </div>
