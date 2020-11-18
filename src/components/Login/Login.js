@@ -46,7 +46,7 @@ export default function Login() {
       //   console.log(formState);
       setButtonDisabled(!valid);
     });
-  }, [formState]);
+  });
 
   const validate = e => {
     yup
