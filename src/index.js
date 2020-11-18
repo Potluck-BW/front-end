@@ -11,6 +11,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { LandingPage } from './components/pages/Landing';
 import { LoadingComponent } from './components/common';
+import RegForm from './components/RegForm/RegForm.js';
 import Login from './components/Login/Login';
 import './index.css';
 
@@ -32,6 +33,7 @@ function App() {
     <Switch>
       <div className="appBody">
         <Route exact path="/" component={Login} />
+        <Route path="/register" component={RegForm} />
       </div>
     </Switch>
   );
