@@ -5,6 +5,7 @@ import {
   Route,
   useHistory,
   Switch,
+  Link,
 } from 'react-router-dom';
 
 import { NotFoundPage } from './components/pages/NotFound';
@@ -30,11 +31,17 @@ function App() {
   const history = useHistory();
 
   return (
-    <Switch>
-      <div className="appBody">
+    <div className="appBody">
+      <nav>
+        <div className="nav-links">
+          <Link to="/">Log In</Link>
+          <Link to="/register">Register</Link>
+        </div>
+      </nav>
+      <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/register" component={RegForm} />
-      </div>
-    </Switch>
+      </Switch>
+    </div>
   );
 }

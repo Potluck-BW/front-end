@@ -1,5 +1,11 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}  
 .appBody {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: #222846;
@@ -11,4 +17,35 @@
 .error {
   color: rgb(182, 0, 0);
   max-width: 60%;
+}
+
+.nav-links{
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1c5d76;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.nav-links a:hover{
+  color: #8d82c4;
+}
+
+.nav-links a:last-of-type {
+  margin-right: 0;
+}
+
+.nav-links a.active {
+  border-bottom: 1px solid #1c5d76;
 }

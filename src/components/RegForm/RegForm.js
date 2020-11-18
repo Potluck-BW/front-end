@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import axios from 'axios';
+import '../Login/Login';
 
 const formSchema = yup.object().shape({
   username: yup.string().required('Username is a required field.'),
@@ -67,35 +68,33 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={formSubmit}>
-      <label htmlFor="username">
-        Username:
-        <input
-          type="text"
-          name="username"
-          id="username"
-          value={form.username}
-          onChange={inputChange}
-        />
-      </label>
+    <form onSubmit={formSubmit} className="formContainer">
+      <h2>Create an Account</h2>
+      <label htmlFor="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        value={form.username}
+        onChange={inputChange}
+      />
+
       {errors.username.length > 0 ? (
         <p className="error">{errors.username}</p>
       ) : null}
-      <label htmlFor="password">
-        Password:
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={form.password}
-          onChange={inputChange}
-        />
-      </label>
+      <label htmlFor="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        value={form.password}
+        onChange={inputChange}
+      />
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
       <label htmlFor="passwordVerification">
-        Verify Password:
+        Verify Password
         <input
           type="password"
           name="passwordVerification"
